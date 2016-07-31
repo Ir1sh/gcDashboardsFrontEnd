@@ -18,7 +18,6 @@
      "webpack-dev-server": "webpack-dev-server",
      "webdriver-manager": "webdriver-manager",
      "protractor": "protractor",
-
      "clean": "npm cache clean && npm run rimraf -- node_modules doc coverage dist",
        "clean:dist": "npm run rimraf -- dist",
          "preclean:install": "npm run clean",
@@ -108,7 +107,6 @@
     "gh-pages": "^0.11.0",
     "parse5": "^1.5.1",
     "rimraf": "^2.5.2",
-
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^1.0.1",
     "karma-coverage": "^1.0.0",
@@ -116,7 +114,6 @@
     "karma-mocha-reporter": "^2.0.0",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "1.7.0",
-
     "remap-istanbul": "^0.6.3",
 
     "protractor": "^3.2.2",

@@ -3,7 +3,8 @@
  */
 import { Component, ViewEncapsulation } from '@angular/core';
 
-import { AppState } from './app.service';
+import {AppState} from './app.service';
+import {AlternativeCourses} from "./alternative-courses/alternative-courses.component";
 
 /*
  * App Component
@@ -38,6 +39,11 @@ import { AppState } from './app.service';
       <span>
         <a [routerLink]=" ['./about'] ">
           About
+        </a>
+      </span>
+      <span>
+        <a [routerLink]=" ['./alternative-courses'] ">
+          Alternative Courses
         </a>
       </span>
     </nav>
