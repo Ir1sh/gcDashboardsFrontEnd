@@ -1,6 +1,7 @@
 import { WebpackAsyncRoute } from '@angularclass/webpack-toolkit';
 import { RouterConfig } from '@angular/router';
 import { Home } from './home';
+import { AlternativeCourses } from './alternative-courses'
 import { NoContent } from './no-content';
 
 import { DataResolver } from './app.resolver';
@@ -8,6 +9,7 @@ import { DataResolver } from './app.resolver';
 export const routes: RouterConfig = [
   { path: '',      component: Home },
   { path: 'home',  component: Home },
+  { path: 'alternative-courses', component: AlternativeCourses },
   // make sure you match the component type string to the require in asyncRoutes
   { path: 'about', component: 'About',
     resolve: {
