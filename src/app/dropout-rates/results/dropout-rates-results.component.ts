@@ -2,13 +2,14 @@ import {Component} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'
 import {AppState} from '../../app.service';
 import {Data} from '../data/data.service';
+import { DorChartOne } from './charts/chartOne/chart-one.ts';
 
 @Component({
   selector: 'dropout-rates-results',
   providers: [
     Data
   ],
-  directives: [],
+  directives: [DorChartOne],
   pipes: [],
   styles: [],
   template: require('./dropout-rates-results.html')
