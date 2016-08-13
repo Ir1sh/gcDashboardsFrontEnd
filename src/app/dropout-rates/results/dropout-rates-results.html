@@ -1,8 +1,23 @@
-<div>
-  <p *ngIf="dor">
-    {{dor.chartOne.byInstitutionType}}
-    {{dor.chartTwo.overall}}
-    {{dor.chartThree.droppedOut}}
-  </p>
-  <dor-chart-one></dor-chart-one>
+<div *ngIf="dor">
+  <dor-chart-one 
+    [chartValues]="dor.chartOne"
+    [sector]="selectedSector"
+    [inst]="selectedInst"
+    [grade]="selectedGrade"
+    [gender]="selectedGender"
+  ></dor-chart-one>
+  <dor-chart-two 
+    [chartValues]="dor.chartTwo"
+    [sector]="selectedSector"
+    [inst]="selectedInst"
+    [grade]="selectedGrade"
+    [gender]="selectedGender"
+  ></dor-chart-two>
+  <dor-chart-three 
+    [chartValues]="dor.chartThree"
+    [sector]="selectedSector"
+    [inst]="selectedInst"
+    [grade]="selectedGrade"
+    [gender]="selectedGender"
+  ></dor-chart-three>
 </div>

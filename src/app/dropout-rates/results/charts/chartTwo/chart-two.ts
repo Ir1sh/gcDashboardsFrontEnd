@@ -4,10 +4,10 @@ import '../../../../../../node_modules/chart.js/dist/Chart.bundle.min.js';
 import {CHART_DIRECTIVES} from 'ng2-charts';
 
 // webpack html imports
-let template = require('./chart-one.html');
+let template = require('./chart-two.html');
 
 @Component({
-    selector: 'dor-chart-one',
+    selector: 'dor-chart-two',
     properties: [
         'chartValues',
         'sector',
@@ -18,7 +18,7 @@ let template = require('./chart-one.html');
   template: template,
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
-export class DorChartOne {
+export class DorChartTwo {
     @Input() chartValues:any = {};
     @Input() sector:any = {};
     @Input() inst:any = {};
@@ -45,10 +45,7 @@ export class DorChartOne {
         
         this.barChartLabels = [
             'overall',
-            'InstType',
-            this.inst.name,
-            this.inst.name + ' in ',
-            this.inst.name + ' in '];
+            'Dropout Rate among ' + this.gender.name + ' in InstType'];
 
         this.barChartType = 'bar';
         this.barChartLegend = true;
@@ -56,10 +53,7 @@ export class DorChartOne {
             {
                 data: [
                     this.chartValues.overall,
-                    this.chartValues.byInstitutionType,
-                    this.chartValues.bySector,
-                    this.chartValues.bySectorAndInstitutionType,
-                    this.chartValues.bySectorInInstitution],
+                    this.chartValues.institutionByGender],
                 label:'Percent who Dropout'}
         ];
     }

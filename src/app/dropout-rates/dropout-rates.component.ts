@@ -35,6 +35,11 @@ export class DropoutRates {
         this.selectedSector = this.sectors[1].id
         this.selectedRange = this.ranges[1].id
         this.selectedGender = this.genders[1].id
+
+        this.appState.set('institutions', res.institutions)
+        this.appState.set('sectors', res.sectors)
+        this.appState.set('ranges', res.ranges)
+        this.appState.set('genders', res.genders)
     });
 
   }

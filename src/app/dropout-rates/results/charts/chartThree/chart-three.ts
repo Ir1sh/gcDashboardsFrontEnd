@@ -4,10 +4,10 @@ import '../../../../../../node_modules/chart.js/dist/Chart.bundle.min.js';
 import {CHART_DIRECTIVES} from 'ng2-charts';
 
 // webpack html imports
-let template = require('./chart-one.html');
+let template = require('./chart-three.html');
 
 @Component({
-    selector: 'dor-chart-one',
+    selector: 'dor-chart-three',
     properties: [
         'chartValues',
         'sector',
@@ -18,7 +18,7 @@ let template = require('./chart-one.html');
   template: template,
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
-export class DorChartOne {
+export class DorChartThree {
     @Input() chartValues:any = {};
     @Input() sector:any = {};
     @Input() inst:any = {};
@@ -44,23 +44,18 @@ export class DorChartOne {
     ngOnInit() {
         
         this.barChartLabels = [
-            'overall',
-            'InstType',
-            this.inst.name,
-            this.inst.name + ' in ',
-            this.inst.name + ' in '];
+            'Dropped out of InstType',
+            'Did not drop out of InstType'
+            ];
 
         this.barChartType = 'bar';
         this.barChartLegend = true;
         this.barChartData = [
             {
                 data: [
-                    this.chartValues.overall,
-                    this.chartValues.byInstitutionType,
-                    this.chartValues.bySector,
-                    this.chartValues.bySectorAndInstitutionType,
-                    this.chartValues.bySectorInInstitution],
-                label:'Percent who Dropout'}
+                    this.chartValues.droppedOut,
+                    this.chartValues.didNotDropOut],
+                label:'Dropout numbers by Institution type'}
         ];
     }
   // events
