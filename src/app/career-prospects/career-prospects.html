@@ -1,13 +1,9 @@
 <div>
-  <ul>
-    <li *ngFor="#cluster of clusters">
-      {{ cluster.name }}
-    </li>
-  </ul>
-  <ul>
-    <li *ngFor="#occupation of occupations">
-      {{ occupation.name }}
-    </li>
-  </ul>
+  <select id="cluster-selector" (change)="onClusterSelected($event.target.value)">
+    <option *ngFor="let c of clusters" [value]="c.id">{{c.name}}</option>
+  </select>
+  <select id="occupation-selector" (change)="onOccupationSelected($event.target.value)">
+    <option *ngFor="let o of occupations" [value]="o.id">{{o.name}}</option>
+  </select>
   <router-outlet></router-outlet>
 </div>

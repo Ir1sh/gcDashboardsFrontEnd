@@ -1,8 +1,6 @@
 <div>
-  <ul>
-    <li *ngFor="#category of heaCategories">
-      {{ category.name }}
-    </li>
-  </ul>
+  <select id="category-selector" (change)="onCategorySelected($event.target.value)">
+    <option *ngFor="let c of heaCategories" [value]="c.id">{{c.name}}</option>
+  </select>
   <router-outlet></router-outlet>
 </div>

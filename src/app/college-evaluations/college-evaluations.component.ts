@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { Router } from '@angular/router'
 import {AppState} from '../app.service';
 import {Data} from './data/data.service';
 
@@ -14,7 +15,7 @@ import {Data} from './data/data.service';
 })
 export class CollegeEvaluations {
   colleges;
-  constructor(public appState: AppState, public data: Data) {
+    constructor(public appState: AppState, public data: Data, private router: Router) {
     data.getInitData().subscribe(res => {
         this.colleges = res;
       console.log(this.colleges);
@@ -23,4 +24,8 @@ export class CollegeEvaluations {
   ngOnInit() {
     console.log('hello this is college-evaluations: ');
   }
+    onCollegeSelected(collegeId) {
+        console.log("COLLEGE SELECTED: ", collegeId);
+        this.router.navigate(['/college-evaluations', collegeId]);
+    }
 }

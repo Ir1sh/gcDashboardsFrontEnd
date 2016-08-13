@@ -18,19 +18,16 @@ export class DropoutRatesResults {
     constructor(public appState: AppState, private data: Data, private router: Router, private route: ActivatedRoute) {}
   ngOnInit() {
       console.log('hello this is drop out rate results: ', this.route);
-      this.router.routerState.queryParams
-          .map(params => {
+      this.route.params
+          .subscribe(params => {
               console.log('PARAMS: ', params)
-              return {
+              const ps = {
                   "sectorId": parseInt(params['sectorId'], 10),
                   "institutionId": parseInt(params['institutionId'], 10),
                   "gradeId": parseInt(params['gradeId'], 10),
                   "genderId": parseInt(params['genderId'], 10)
               }
-          })
-          .subscribe((obj) => {
-              console.log('OBJECT: ', obj);
-              this.data.getResults(obj).subscribe(res => {
+              this.data.getResults(ps).subscribe(res => {
                   this.dor = res;
                   console.log(this.dor);
               })

@@ -1,8 +1,15 @@
 <div>
-  <ul>
-    <li *ngFor="#institution of institutions">
-      {{ institution.name }}
-    </li>
-  </ul>
+  <select id="institution-selector" (change)="onInstitutionSelected($event.target.value)" [(ngModel)]="selectedInst">
+    <option *ngFor="let i of institutions" [value]="i.id">{{i.name}}</option>
+  </select>
+  <select id="sector-selector" (change)="onSectorSelected($event.target.value)" [(ngModel)]="selectedSector">
+    <option *ngFor="let s of sectors" [value]="s.id">{{s.name}}</option>
+  </select>
+  <select id="range-selector" (change)="onRangeSelected($event.target.value)" [(ngModel)]="selectedRange">
+    <option *ngFor="let r of ranges" [value]="r.id">{{r.range}}</option>
+  </select>
+  <select id="gender-selector" (change)="onGenderSelected($event.target.value)" [(ngModel)]="selectedGender">
+    <option *ngFor="let g of genders" [value]="g.id">{{g.name}}</option>
+  </select>
   <router-outlet></router-outlet>
 </div>

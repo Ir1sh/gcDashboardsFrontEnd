@@ -1,8 +1,6 @@
 <div>
-  <ul>
-    <li *ngFor="#school of schools">
-      {{ school.name }}
-    </li>
-  </ul>
+  <select id="school-selector" (change)="onSchoolSelected($event.target.value)">
+    <option *ngFor="let s of schools" [value]="s.id">{{s.name}}</option>
+  </select>
   <router-outlet></router-outlet>
 </div>
