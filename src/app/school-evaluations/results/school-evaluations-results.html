@@ -1,3 +1,23 @@
 <div *ngIf="schoolInfo">
-{{ schoolInfo.inst.name }}
+  <p>
+    Principle: {{ schoolInfo.basicInfo.principle }} <br>
+    FeePaying: {{ schoolInfo.basicInfo.feepaying }} <br>
+    # of students: {{ schoolInfo.genderBreakdown.maletotal + schoolInfo.genderBreakdown.femaletotal }} <br>
+    Males: {{ schoolInfo.genderBreakdown.maletotal }} <br>
+    Females: {{ schoolInfo.genderBreakdown.femaletotal }} <br>
+    Overall Progression Rate: {{ schoolInfo.progressionInfo.progressionInfo.progressiontothirdlevelb1percent * 100 }}% <br>
+    Uni: {{ schoolInfo.progressionInfo.progressionInfo.progresstounipercent * 100 }}% <br>
+    IT: {{ schoolInfo.progressionInfo.progressionInfo.progresstoitpercent * 100 }} <br>
+    College: {{ schoolInfo.progressionInfo.progressionInfo.progresstocolpercent * 100 }} <br>
+    Overall Progression Rank: {{ schoolInfo.progressionInfo.progressionInfo.progresspercentilescore }} <br>
+    Uni Prgoression Rank: {{ schoolInfo.progressionInfo.progressionInfo.progresstounipercentilescore }} <br>
+    Points Score: {{ schoolInfo.progressionInfo.pointsaveragescore }} <br>
+    Points Rank: {{ schoolInfo.progressionInfo.pointsdecilescore }} <br>
+  </p>
+  <school-evaluation-chart-one
+   [chartValues]="schoolInfo"
+  ></school-evaluation-chart-one>
+  <school-evaluation-chart-two
+   [chartValues]="schoolInfo"
+  ></school-evaluation-chart-two>
 </div>

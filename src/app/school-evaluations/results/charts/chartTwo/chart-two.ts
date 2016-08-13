@@ -4,17 +4,17 @@ import '../../../../../../node_modules/chart.js/dist/Chart.bundle.min.js';
 import {CHART_DIRECTIVES} from 'ng2-charts';
 
 // webpack html imports
-let template = require('./chart-one.html');
+let template = require('./chart-two.html');
 
 @Component({
-    selector: 'school-evaluation-chart-one',
+    selector: 'school-evaluation-chart-two',
     properties: [
-        'chartValues',
+        'chartValues'
     ],
   template: template,
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
-export class SchoolEvaluationsChartOne {
+export class SchoolEvaluationsChartTwo {
     @Input() chartValues:any = {};
     
     public barChartLabels:string[];
@@ -35,25 +35,21 @@ export class SchoolEvaluationsChartOne {
 
     ngOnInit() {
         
-        this.barChartLabels = [
-            'Students Sitting Leaving Cert',
-            'Number Accepting Places',
-            'University',
-            'Institute of Technology',
-            'College'
-        ];
+        this.barChartLabels = Object
+            .keys(this.chartValues.progressionInfo.progressionByUniversity)
+            .concat(Object.keys(this.chartValues.progressionInfo.progressionByIT))
+            .concat(Object.keys(this.chartValues.progressionInfo.progressionByCollege));
 
         this.barChartType = 'bar';
         this.barChartLegend = true;
-        console.log('CHART VALUES', this.chartValues);
         this.barChartData = [
             {
-                data: [
-                    this.chartValues.progressionInfo.anosittinglc,
-                    this.chartValues.progressionInfo.b1noacceptingplaces2015calc,
-                    this.chartValues.progressionInfo.progressionInfo.noprogresstouni,
-                    this.chartValues.progressionInfo.progressionInfo.noprogresstoit,
-                    this.chartValues.progressionInfo.progressionInfo.noprogresstocol],
+                data: Object.keys(this.chartValues.progressionInfo.progressionByUniversity)
+                    .map(k => this.chartValues.progressionInfo.progressionByUniversity[k])
+                    .concat(Object.keys(this.chartValues.progressionInfo.progressionByIT)
+                            .map(k => this.chartValues.progressionInfo.progressionByIT[k]))
+                    .concat(Object.keys(this.chartValues.progressionInfo.progressionByCollege)
+                            .map(k => this.chartValues.progressionInfo.progressionByCollege[k])),
                 label:'Percent who Dropout'}
         ];
     }

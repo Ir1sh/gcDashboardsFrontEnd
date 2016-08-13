@@ -51,8 +51,8 @@ export class SchoolEvaluationsChartOne {
                 data: [
                     this.chartValues.progressionInfo.anosittinglc,
                     this.chartValues.progressionInfo.b1noacceptingplaces2015calc,
-                    this.chartValues.progressionInfo.progressionInfo.noprogresstouni,
-                    this.chartValues.progressionInfo.progressionInfo.noprogresstoit,
+                    this.chartValues.progressionInfo.progressionByUniversity,
+                    this.chartValues.progressionsInfo.progressionInfo.noprogresstoit,
                     this.chartValues.progressionInfo.progressionInfo.noprogresstocol],
                 label:'Percent who Dropout'}
         ];
