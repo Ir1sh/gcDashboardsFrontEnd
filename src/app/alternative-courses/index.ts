@@ -1,1 +1,1 @@
-export * from './alternative-courses.component';
+export * from './alternative-courses.component.ts';

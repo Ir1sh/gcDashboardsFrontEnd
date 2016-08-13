@@ -1,0 +1,13 @@
+<div>
+  <ul>
+    <li *ngFor="#cluster of clusters">
+      {{ cluster.name }}
+    </li>
+  </ul>
+  <ul>
+    <li *ngFor="#occupation of occupations">
+      {{ occupation.name }}
+    </li>
+  </ul>
+  <router-outlet></router-outlet>
+</div>

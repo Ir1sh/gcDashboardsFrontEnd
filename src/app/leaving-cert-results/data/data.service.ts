@@ -5,6 +5,6 @@ import {Http} from '@angular/http';
 export class Data {
   constructor(public http: Http) {}
   getInitData() {
-    return this.http.get('http://gcDashboardService:9000').map(res => res.json());
+    return this.http.get('http://gcDashboardService:9000/leavingcertresults').map(res => res.json());
   }
 }

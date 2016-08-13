@@ -5,6 +5,12 @@ import { Component, ViewEncapsulation } from '@angular/core';
 
 import {AppState} from './app.service';
 import {AlternativeCourses} from "./alternative-courses/alternative-courses.component";
+import {AreaProspects} from "./area-prospects/area-prospects.component";
+import {CareerProspects} from "./career-prospects/career-prospects.component";
+import {CollegeEvaluations} from "./college-evaluations/college-evaluations.component";
+import {DropoutRates} from "./dropout-rates/dropout-rates.component.ts";
+import {LeavingCertResults} from "./leaving-cert-results/leaving-cert-results.component";
+import {SchoolEvaluations} from "./school-evaluations/school-evaluations.component";
 
 /*
  * App Component
@@ -42,8 +48,38 @@ import {AlternativeCourses} from "./alternative-courses/alternative-courses.comp
         </a>
       </span>
       <span>
+        <a [routerLink]=" ['./leaving-cert-results'] ">
+          Leavin Cert Results
+        </a>
+      </span>
+      <span>
+        <a [routerLink]=" ['./school-evaluations'] ">
+          School Evaluations
+        </a>
+      </span>
+      <span>
         <a [routerLink]=" ['./alternative-courses'] ">
           Alternative Courses
+        </a>
+      </span>
+      <span>
+        <a [routerLink]=" ['./college-evaluations'] ">
+          College Evaluations
+        </a>
+      </span>
+      <span>
+        <a [routerLink]=" ['./dropout-rates'] ">
+          Drop-out Rates
+        </a>
+      </span>
+      <span>
+        <a [routerLink]=" ['./area-prospects'] ">
+          Area Prospects
+        </a>
+      </span>
+      <span>
+        <a [routerLink]=" ['./career-prospects'] ">
+          Career Prospects
         </a>
       </span>
     </nav>

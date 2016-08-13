@@ -3,26 +3,24 @@ import {AppState} from '../app.service';
 import {Data} from './data/data.service';
 
 @Component({
-  selector: 'alternative-courses',
+  selector: 'area-prospects',
   providers: [
     Data
   ],
   directives: [],
   pipes: [],
   styles: [],
-  template: require('./alternative-courses.html')
+  template: require('./area-prospects.html')
 })
-export class AlternativeCourses {
-  categories;
-  courses;
+export class AreaProspects {
+  heaCategories;
   constructor(public appState: AppState, public data: Data) {
     data.getInitData().subscribe(res => {
-      this.categories = res.categories;
-      this.courses = res.courses;
-      console.log(this.courses, this.categories);
+        this.heaCategories = res;
+      console.log(this.heaCategories);
     });
   }
   ngOnInit() {
-    console.log('hello this is alt courses component: ');
+    console.log('hello this is area prospects: ');
   }
 }
