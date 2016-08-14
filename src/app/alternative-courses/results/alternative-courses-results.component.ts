@@ -16,6 +16,9 @@ import {Data} from '../data/data.service';
 export class AlternativeCoursesResults {
     catId
     courses;
+    institutions;
+    types;
+    places;
     constructor(public appState: AppState, private data: Data, private route: ActivatedRoute) {}
   ngOnInit() {
     console.log('hello this is alternative course results: ');
@@ -27,9 +30,25 @@ export class AlternativeCoursesResults {
                   console.log('id: ', this.catId);
                   this.data.getInitData().subscribe(res => {
                       this.courses = res.courses.filter((c) => c.cgacategory === this.catId);
+                      this.institutions = res.institutions;
+                      this.types = res.types;
+                      this.places = res.places;
                       console.log(this.courses);
                   });
               }
           )
   }
+
+    getPlaces(courseId) {
+        return this.places.find(p => p.courseid === courseId);
+    }
+
+    getInstitution(instId) {
+        return this.institutions.find(i => i.id === instId);;
+    }
+
+    getInstitutionType(typeId) {
+        console.log(typeId);
+        return this.types.find(t => t.id === typeId);
+    }
 }

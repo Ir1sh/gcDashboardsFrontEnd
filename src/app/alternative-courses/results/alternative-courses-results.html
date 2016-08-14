@@ -1,7 +1,29 @@
 <div>
-  <ul>
-    <li *ngFor="#course of courses">
-      {{ course.name }}
-    </li>
-  </ul>
+  <table *ngIf="courses" style="width: 100%">
+    <tr>
+      <th>Course Code</th>
+      <th>Course Name</th>
+      <th>Institution</th>
+      <th>Institution Type</th>
+      <th>Places</th>
+      <!-- <th>Minimum Points '14</th>
+           <th>Minimum Points '15</th>
+           <th>Median Points '14</th>
+           <th>Median Points '15</th>
+           <th>% achieving</th> -->
+      <!-- <th>Portfolio Course?</th> -->
+    </tr>
+    <tr *ngFor="#course of courses">
+      <th>{{ course.name }}</th>
+      <th>{{ course.code }}</th>
+      <th>{{ getInstitution(course.institutionid).name}}</th>
+      <th>{{ getInstitutionType(getInstitution(course.institutionid).typeid).name}}</th>
+      <th>{{ getPlaces(course.id).places }}</th>
+      <!-- <th>{{ course.name }}</th>
+           <th>{{ course.name }}</th>
+           <th>{{ course.name }}</th>
+           <th>{{ course.name }}</th> -->
+      <!-- <th>{{ course.name }}</th> -->
+    </tr>
+  </table>
 </div>
