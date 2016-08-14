@@ -4,17 +4,17 @@ import '../../../../../../node_modules/chart.js/dist/Chart.bundle.min.js';
 import {CHART_DIRECTIVES} from 'ng2-charts';
 
 // webpack html imports
-let template = require('./chart-one.html');
+let template = require('./chart-two.html');
 
 @Component({
-    selector: 'area-prospects-chart-one',
+    selector: 'area-prospects-chart-two',
     properties: [
-        'chartValues',
+        'chartValues'
     ],
   template: template,
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
-export class AreaProspectsChartOne {
+export class AreaProspectsChartTwo {
     @Input() chartValues:any = {};
     
     public barChartLabels:string[];
@@ -39,7 +39,6 @@ export class AreaProspectsChartOne {
 
         this.barChartType = 'bar';
         this.barChartLegend = true;
-        console.log('CHART VALUES', this.chartValues);
         this.barChartData = [
             {
                 data: this.barChartLabels.map(k => this.chartValues[k]),

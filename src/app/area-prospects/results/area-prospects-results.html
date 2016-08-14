@@ -1,6 +1,22 @@
 <div>
-  <p *ngIf="prospects">
-    {{prospects.courses}}
-    {{prospects.enrollments.uniug}}
-  </p>
+  <div *ngIf="prospects">
+  <area-prospects-chart-one 
+    [chartValues]="prospects.enrollments"
+  ></area-prospects-chart-one>
+  <area-prospects-chart-two 
+    [chartValues]="prospects.relevance"
+  ></area-prospects-chart-two>
+  <area-prospects-chart-three 
+    [chartValues]="prospects.satisfaction"
+  ></area-prospects-chart-three>
+  <area-prospects-chart-four 
+    [chartValues]="prospects.gradautetrends09to14"
+  ></area-prospects-chart-four>
+  <area-prospects-chart-five 
+    [chartValues]="prospects.employment"
+  ></area-prospects-chart-five>
+  <area-prospects-chart-six 
+    [chartValues]="prospects.satisfaction"
+  ></area-prospects-chart-six>
+  </div>
 </div>
