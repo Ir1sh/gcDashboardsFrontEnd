@@ -4,17 +4,17 @@ import '../../../../../../node_modules/chart.js/dist/Chart.bundle.min.js';
 import {CHART_DIRECTIVES} from 'ng2-charts';
 
 // webpack html imports
-let template = require('./chart-one.html');
+let template = require('./chart-two.html');
 
 @Component({
-    selector: 'career-prospects-chart-one',
+    selector: 'career-prospects-chart-two',
     properties: [
-        'chartValues',
+        'chartValues'
     ],
   template: template,
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
-export class CareerProspectsChartOne {
+export class CareerProspectsChartTwo {
     @Input() chartValues:any = {};
     
     public barChartLabels:string[];
@@ -35,17 +35,13 @@ export class CareerProspectsChartOne {
 
     ngOnInit() {
         
-        this.barChartLabels = Object.keys(this.chartValues.item);
+        this.barChartLabels = Object.keys(this.chartValues);
 
         this.barChartType = 'bar';
         this.barChartLegend = true;
-        console.log('CHART VALUES', this.chartValues);
         this.barChartData = [
             {
-                data: this.barChartLabels.map(k => this.chartValues.item[k]),
-                label:'Percent who Dropout'},
-            {
-                data: this.barChartLabels.map(k => this.chartValues.avg[k]),
+                data: this.barChartLabels.map(k => this.chartValues[k]),
                 label:'Percent who Dropout'}
         ];
     }

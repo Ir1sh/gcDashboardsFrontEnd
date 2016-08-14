@@ -18,7 +18,7 @@
       <th>{{ course.code }}</th>
       <th>{{ getInstitution(course.institutionid).name}}</th>
       <th>{{ getInstitutionType(getInstitution(course.institutionid).typeid).name}}</th>
-      <th>{{ getPlaces(course.id).places }}</th>
+      <th>{{ getPlaces(course.id) ? getPlaces(course.id).places : 'N/A' }}</th>
       <!-- <th>{{ course.name }}</th>
            <th>{{ course.name }}</th>
            <th>{{ course.name }}</th>

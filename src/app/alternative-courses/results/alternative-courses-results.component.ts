@@ -48,7 +48,6 @@ export class AlternativeCoursesResults {
     }
 
     getInstitutionType(typeId) {
-        console.log(typeId);
         return this.types.find(t => t.id === typeId);
     }
 }
