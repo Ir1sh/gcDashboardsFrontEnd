@@ -4,17 +4,17 @@ import '../../../../../../node_modules/chart.js/dist/Chart.bundle.min.js';
 import {CHART_DIRECTIVES} from 'ng2-charts';
 
 // webpack html imports
-let template = require('./chart-one.html');
+let template = require('./chart-five.html');
 
 @Component({
-    selector: 'college-evaluations-chart-one',
+    selector: 'college-evaluations-chart-five',
     properties: [
         'chartValues',
     ],
   template: template,
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
-export class CollegeEvaluationsChartOne {
+export class CollegeEvaluationsChartFive {
     @Input() chartValues:any = {};
     
     public barChartLabels:string[];

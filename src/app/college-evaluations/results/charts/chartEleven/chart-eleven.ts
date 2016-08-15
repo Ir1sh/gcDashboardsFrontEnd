@@ -4,17 +4,17 @@ import '../../../../../../node_modules/chart.js/dist/Chart.bundle.min.js';
 import {CHART_DIRECTIVES} from 'ng2-charts';
 
 // webpack html imports
-let template = require('./chart-six.html');
+let template = require('./chart-eleven.html');
 
-area-@Component({
-    selector: 'area-prospects-chart-six',
+@Component({
+    selector: 'college-evaluations-chart-eleven',
     properties: [
-        'chartValues'
+        'chartValues',
     ],
   template: template,
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
-export class AreaProspectsChartSix {
+export class CollegeEvaluationsChartEleven {
     @Input() chartValues:any = {};
     
     public barChartLabels:string[];
@@ -35,23 +35,15 @@ export class AreaProspectsChartSix {
 
     ngOnInit() {
         
-        this.barChartLabels = [
-            'reportingadminstaffavailablepercent',
-            'reportingteachingstaffavailablepercent',
-            'reportingfriendlyrelationshipswithotherstudentspercent',
-            'verymuchsupporttosocarea-alisepercent',
-            'academicchallengepercent',
-            'supportivelearningenvironmentpercent',
-            'satisfactionpercent',
-        ];
+        this.barChartLabels = Object.keys(this.chartValues);
 
         this.barChartType = 'bar';
         this.barChartLegend = true;
+        console.log('CHART VALUES', this.chartValues);
         this.barChartData = [
             {
                 data: this.barChartLabels.map(k => this.chartValues[k]),
-                label:'Percent who Dropout'}
-        ];
+                label:'Percent who Dropout'};
     }
   // events
   public chartClicked(e:any):void {

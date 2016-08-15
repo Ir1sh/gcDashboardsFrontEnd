@@ -1,5 +1,46 @@
 <div>
-    <p *ngIf="school">
-      {{ school.inst.name }}
-    </p>
+  <div *ngIf="school">
+    <college-evaluations-chart-one 
+        [chartValues]="school.enrollments"
+    ></college-evaluations-chart-one>
+    <college-evaluations-chart-two 
+      [chartValues]="school.enrollmentsByArea"
+    ></college-evaluations-chart-two>
+    <college-evaluations-chart-three 
+      [chartValues]="school.entryDifficulty"
+    ></college-evaluations-chart-three>
+    <college-evaluations-chart-four 
+      [chartValues]="school.dropoutRates"
+    ></college-evaluations-chart-four>
+    <college-evaluations-chart-five 
+      [chartValues]="school.receivingGrants"
+    ></college-evaluations-chart-five>
+    <college-evaluations-chart-six 
+      [chartValues]="school.coreStaffing"
+    ></college-evaluations-chart-six>
+    <college-evaluations-chart-seven 
+      [chartValues]="school.studentStaffRatio"
+    ></college-evaluations-chart-seven>
+    <college-evaluations-chart-eight 
+      [chartValues]="school.staffProfile"
+    ></college-evaluations-chart-eight>
+    <college-evaluations-chart-nine 
+      [chartValues]="school.staffQualifications"
+    ></college-evaluations-chart-nine>
+    <college-evaluations-chart-ten 
+      [chartValues]="school.internationalEas"
+    ></college-evaluations-chart-ten>
+    <college-evaluations-chart-eleven 
+      [chartValues]="school.international"
+    ></college-evaluations-chart-eleven>
+    <college-evaluations-chart-twelve 
+      [chartValues]="school.expenditurePerStudent"
+    ></college-evaluations-chart-twelve>
+    <college-evaluations-chart-thirteen 
+      [chartValues]="school.researchIncome"
+    ></college-evaluations-chart-thirteen>
+    <college-evaluations-chart-fourteen 
+      [chartValues]="school.incomeSources"
+    ></college-evaluations-chart-fourteen>
+  </div>
 </div>
