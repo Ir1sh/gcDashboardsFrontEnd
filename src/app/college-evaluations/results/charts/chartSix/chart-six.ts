@@ -43,7 +43,7 @@ export class CollegeEvaluationsChartSix {
         this.barChartData = [
             {
                 data: this.barChartLabels.map(k => this.chartValues[k]),
-                label:'Percent who Dropout'};
+                label:'Percent who Dropout'}];
     }
   // events
   public chartClicked(e:any):void {
