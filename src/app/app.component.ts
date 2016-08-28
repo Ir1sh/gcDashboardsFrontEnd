@@ -11,7 +11,6 @@ import {CollegeEvaluations} from "./college-evaluations/college-evaluations.comp
 import {DropoutRates} from "./dropout-rates/dropout-rates.component.ts";
 import {LeavingCertResults} from "./leaving-cert-results/leaving-cert-results.component";
 import {SchoolEvaluations} from "./school-evaluations/school-evaluations.component";
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 /*
  * App Component
@@ -24,49 +23,60 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     './app.style.css'
   ],
   template: `
-    <nav class="col-xs-12">
+    <nav>
       <span>
         <a [routerLink]=" ['./'] ">
+          Index
+        </a>
+      </span>
+      |
+      <span>
+        <a [routerLink]=" ['./home'] ">
           Home
         </a>
       </span>
       |
       <span>
+        <a [routerLink]=" ['./detail'] ">
+          Detail
+        </a>
+      </span>
+      |
+      <span>
+        <a [routerLink]=" ['./about'] ">
+          About
+        </a>
+      </span>
+      <span>
         <a [routerLink]=" ['./leaving-cert-results'] ">
           Leavin Cert Results
         </a>
       </span>
-      |
       <span>
         <a [routerLink]=" ['./school-evaluations'] ">
           School Evaluations
         </a>
       </span>
-      |
       <span>
         <a [routerLink]=" ['./alternative-courses'] ">
           Alternative Courses
         </a>
       </span>
-      |
       <span>
         <a [routerLink]=" ['./college-evaluations'] ">
           College Evaluations
         </a>
       </span>
-      |
       <span>
         <a [routerLink]=" ['./dropout-rates'] ">
           Drop-out Rates
         </a>
       </span>
-      |
       <span>
         <a [routerLink]=" ['./area-prospects'] ">
           Area Prospects
         </a>
       </span>
-      |
       <span>
         <a [routerLink]=" ['./career-prospects'] ">
           Career Prospects
@@ -74,17 +84,18 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
       </span>
     </nav>
 
-    <main class="container-fluid">
+    <main>
       <router-outlet></router-outlet>
     </main>
 
 
     <footer>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+      <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
+      <div>
+        <a [href]="url">
+          <img [src]="angularclassLogo" width="25%">
+        </a>
+      </div>
     </footer>
   `
 })

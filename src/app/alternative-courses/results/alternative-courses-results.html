@@ -1,6 +1,5 @@
 <div>
-  <table class="table table-striped" *ngIf="courses" style="width: 100%">
-    <thead>
+  <table *ngIf="courses" style="width: 100%">
     <tr>
       <th>Course Code</th>
       <th>Course Name</th>
@@ -14,8 +13,6 @@
            <th>% achieving</th> -->
       <!-- <th>Portfolio Course?</th> -->
     </tr>
-    </thead>
-    <tbody>
     <tr *ngFor="#course of courses">
       <th>{{ course.name }}</th>
       <th>{{ course.code }}</th>
@@ -28,6 +25,5 @@
            <th>{{ course.name }}</th> -->
       <!-- <th>{{ course.name }}</th> -->
     </tr>
-    </tbody>
   </table>
 </div>

@@ -1,18 +1,46 @@
-<div class="row">
-  <div class="col-xs-12" *ngIf="school">
-    <college-evaluations-chart-one class="col-xs-4" [chartValues]="school.enrollments"></college-evaluations-chart-one>
-    <college-evaluations-chart-two class="col-xs-4" [chartValues]="school.enrollmentsByArea"></college-evaluations-chart-two>
-    <college-evaluations-chart-three class="col-xs-4" [chartValues]="school.entryDifficulty"></college-evaluations-chart-three>
-    <college-evaluations-chart-four class="col-xs-4" [chartValues]="school.dropoutRates"></college-evaluations-chart-four>
-    <college-evaluations-chart-five class="col-xs-4" [chartValues]="school.receivingGrants"></college-evaluations-chart-five>
-    <college-evaluations-chart-six class="col-xs-4" [chartValues]="school.coreStaffing"></college-evaluations-chart-six>
-    <college-evaluations-chart-seven class="col-xs-4" [chartValues]="school.studentStaffRatio"></college-evaluations-chart-seven>
-    <college-evaluations-chart-eight class="col-xs-4" [chartValues]="school.staffProfile"></college-evaluations-chart-eight>
-    <college-evaluations-chart-nine class="col-xs-4" [chartValues]="school.staffQualifications"></college-evaluations-chart-nine>
-    <college-evaluations-chart-ten class="col-xs-4" [chartValues]="school.internationalEas"></college-evaluations-chart-ten>
-    <college-evaluations-chart-eleven class="col-xs-4" [chartValues]="school.international"></college-evaluations-chart-eleven>
-    <college-evaluations-chart-twelve class="col-xs-4" [chartValues]="school.expenditurePerStudent"></college-evaluations-chart-twelve>
-    <college-evaluations-chart-thirteen class="col-xs-4" [chartValues]="school.researchIncome"></college-evaluations-chart-thirteen>
-    <college-evaluations-chart-fourteen class="col-xs-4" [chartValues]="school.incomeSources"></college-evaluations-chart-fourteen>
+<div>
+  <div *ngIf="school">
+    <college-evaluations-chart-one 
+        [chartValues]="school.enrollments"
+    ></college-evaluations-chart-one>
+    <college-evaluations-chart-two 
+      [chartValues]="school.enrollmentsByArea"
+    ></college-evaluations-chart-two>
+    <college-evaluations-chart-three 
+      [chartValues]="school.entryDifficulty"
+    ></college-evaluations-chart-three>
+    <college-evaluations-chart-four 
+      [chartValues]="school.dropoutRates"
+    ></college-evaluations-chart-four>
+    <college-evaluations-chart-five 
+      [chartValues]="school.receivingGrants"
+    ></college-evaluations-chart-five>
+    <college-evaluations-chart-six 
+      [chartValues]="school.coreStaffing"
+    ></college-evaluations-chart-six>
+    <college-evaluations-chart-seven 
+      [chartValues]="school.studentStaffRatio"
+    ></college-evaluations-chart-seven>
+    <college-evaluations-chart-eight 
+      [chartValues]="school.staffProfile"
+    ></college-evaluations-chart-eight>
+    <college-evaluations-chart-nine 
+      [chartValues]="school.staffQualifications"
+    ></college-evaluations-chart-nine>
+    <college-evaluations-chart-ten 
+      [chartValues]="school.internationalEas"
+    ></college-evaluations-chart-ten>
+    <college-evaluations-chart-eleven 
+      [chartValues]="school.international"
+    ></college-evaluations-chart-eleven>
+    <college-evaluations-chart-twelve 
+      [chartValues]="school.expenditurePerStudent"
+    ></college-evaluations-chart-twelve>
+    <college-evaluations-chart-thirteen 
+      [chartValues]="school.researchIncome"
+    ></college-evaluations-chart-thirteen>
+    <college-evaluations-chart-fourteen 
+      [chartValues]="school.incomeSources"
+    ></college-evaluations-chart-fourteen>
   </div>
 </div>
