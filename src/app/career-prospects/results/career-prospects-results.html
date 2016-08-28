@@ -1,19 +1,9 @@
 <div>
-  <div *ngIf="prospects">
-  <career-prospects-chart-one 
-    [chartValues]="prospects.earnings"
-  ></career-prospects-chart-one>
-  <career-prospects-chart-two 
-    [chartValues]="prospects.forecastGrowth"
-  ></career-prospects-chart-two>
-  <career-prospects-chart-three 
-    [chartValues]="prospects.earningToAvg"
-  ></career-prospects-chart-three>
-  <career-prospects-chart-four 
-    [chartValues]="prospects.percentChange"
-  ></career-prospects-chart-four>
-  <career-prospects-chart-five 
-    [chartValues]="prospects.education"
-  ></career-prospects-chart-five>
+  <div class="row" *ngIf="prospects">
+  <career-prospects-chart-one class="col-xs-4" [chartValues]="prospects.earnings"></career-prospects-chart-one>
+  <career-prospects-chart-two class="col-xs-4" [chartValues]="prospects.forecastGrowth"></career-prospects-chart-two>
+  <career-prospects-chart-three class="col-xs-4" [chartValues]="prospects.earningToAvg"></career-prospects-chart-three>
+  <career-prospects-chart-four class="col-xs-4" [chartValues]="prospects.percentChange"></career-prospects-chart-four>
+  <career-prospects-chart-five class="col-xs-8" [chartValues]="prospects.education"></career-prospects-chart-five>
   </div>
 </div>

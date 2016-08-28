@@ -1,12 +1,14 @@
-<div *ngIf="dor">
+<div class="row" *ngIf="dor">
   <dor-chart-one 
+    class="col-xs-4"
     [chartValues]="dor.chartOne"
     [sector]="selectedSector"
     [inst]="selectedInst"
     [grade]="selectedGrade"
     [gender]="selectedGender"
   ></dor-chart-one>
-  <dor-chart-two 
+  <dor-chart-two
+    class="col-xs-4"
     [chartValues]="dor.chartTwo"
     [sector]="selectedSector"
     [inst]="selectedInst"
@@ -14,6 +16,7 @@
     [gender]="selectedGender"
   ></dor-chart-two>
   <dor-chart-three 
+    class="col-xs-4"
     [chartValues]="dor.chartThree"
     [sector]="selectedSector"
     [inst]="selectedInst"

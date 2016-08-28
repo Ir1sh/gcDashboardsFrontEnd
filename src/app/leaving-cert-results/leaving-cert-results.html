@@ -1,51 +1,44 @@
-<div>
-  <table style="width: 100%" *ngIf="entered">
-    <tr>
-      <td>Subject</td>
-      <td>Level</td>
-      <td>Grade</td>
-    </tr>
-    <tr *ngFor="let e of entered #index = index">
-      <td>
-        <select id="subject-selector" (change)="enteredUpdated($event.target.value, 'subject', index)" [(ngModel)]="e.subject">
-          <option *ngFor="let s of subjects" [value]="s.id">{{s.name}}</option>
-        </select>
-      </td>
-      <td>
-        <select id="level-selector" (change)="enteredUpdated($event.target.value, 'level', index)" [(ngModel)]="e.level">
-          <option *ngFor="let l of levels" [value]="l.value">{{l.name}}</option>
-        </select>
-      </td>
-      <td>
-        <select id="grade-selector" (change)="enteredUpdated($event.target.value, 'grade', index)" [(ngModel)]="e.grade">
-          <option *ngFor="let g of grades" [value]="g.id">{{g.name}}</option>
-        </select>
-      </td>
-    </tr>
+<div class="row">
+  <div class="col-xs-12">
+    <table class="col-xs-6" *ngIf="entered">
+        <tr>
+        <td>Subject</td>
+        <td>Level</td>
+        <td>Grade</td>
+        </tr>
+        <tr *ngFor="let e of entered #index = index">
+        <td>
+            <select id="subject-selector" (change)="enteredUpdated($event.target.value, 'subject', index)" [(ngModel)]="e.subject">
+            <option *ngFor="let s of subjects" [value]="s.id">{{s.name}}</option>
+            </select>
+        </td>
+        <td>
+            <select id="level-selector" (change)="enteredUpdated($event.target.value, 'level', index)" [(ngModel)]="e.level">
+            <option *ngFor="let l of levels" [value]="l.value">{{l.name}}</option>
+            </select>
+        </td>
+        <td>
+            <select id="grade-selector" (change)="enteredUpdated($event.target.value, 'grade', index)" [(ngModel)]="e.grade">
+            <option *ngFor="let g of grades" [value]="g.id">{{g.name}}</option>
+            </select>
+        </td>
+        </tr>
+    </table>
+    <div class="col-xs-6" *ngIf="results">
+      <p *ngIf="results.points">{{results.points}}</p>
+    </div>
+  </div>
 
-  </table>
-
-  <div *ngIf="results">
-    <p *ngIf="results.points">{{results.points}}</p>
+  <div class="row" *ngIf="results">
+    <div class="col-xs-12">
     <div *ngIf="results.charts">
-        <leaving-cert-chart-one 
-            [chartValues]="results.charts[0]"
-        ></leaving-cert-chart-one>
-        <leaving-cert-chart-two 
-          [chartValues]="results.charts[1]"
-        ></leaving-cert-chart-two>
-        <leaving-cert-chart-three 
-          [chartValues]="results.charts[2]"
-        ></leaving-cert-chart-three>
-        <leaving-cert-chart-four 
-          [chartValues]="results.charts[3]"
-        ></leaving-cert-chart-four>
-        <leaving-cert-chart-five 
-          [chartValues]="results.charts[4]"
-        ></leaving-cert-chart-five>
-        <leaving-cert-chart-six 
-          [chartValues]="results.charts[5]"
-        ></leaving-cert-chart-six>
+        <leaving-cert-chart-one class="col-xs-4" [chartValues]="results.charts[0]"></leaving-cert-chart-one>
+        <leaving-cert-chart-two class="col-xs-4" [chartValues]="results.charts[1]"></leaving-cert-chart-two>
+        <leaving-cert-chart-three class="col-xs-4" [chartValues]="results.charts[2]"></leaving-cert-chart-three>
+        <leaving-cert-chart-four class="col-xs-4" [chartValues]="results.charts[3]"></leaving-cert-chart-four>
+        <leaving-cert-chart-five class="col-xs-4" [chartValues]="results.charts[4]"></leaving-cert-chart-five>
+        <leaving-cert-chart-six class="col-xs-4" [chartValues]="results.charts[5]"></leaving-cert-chart-six>
+    </div>
     </div>
   </div>
 </div>

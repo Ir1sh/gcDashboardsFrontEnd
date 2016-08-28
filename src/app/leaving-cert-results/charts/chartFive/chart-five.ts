@@ -33,7 +33,12 @@ export class LeavingCertChartFive {
         }
     };
 
+    constructor() {
+        console.log('Constructor!!!!');
+    }
+
     ngOnInit() {
+        this.chartValues.subscribe(x => console.log('SUBSCRIBER!!!'))
         
         this.barChartLabels = Object.keys(this.chartValues.results);
 
