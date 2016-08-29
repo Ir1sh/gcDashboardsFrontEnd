@@ -1,5 +1,5 @@
 <div *ngIf="schoolInfo">
-  <p>
+  <p class="col-xs-12">
     Principle: {{ schoolInfo.basicInfo.principle }} <br>
     FeePaying: {{ schoolInfo.basicInfo.feepaying }} <br>
     # of students: {{ schoolInfo.genderBreakdown.maletotal + schoolInfo.genderBreakdown.femaletotal }} <br>
@@ -14,10 +14,6 @@
     Points Score: {{ schoolInfo.progressionInfo.pointsaveragescore }} <br>
     Points Rank: {{ schoolInfo.progressionInfo.pointsdecilescore }} <br>
   </p>
-  <school-evaluation-chart-one
-   [chartValues]="schoolInfo"
-  ></school-evaluation-chart-one>
-  <school-evaluation-chart-two
-   [chartValues]="schoolInfo"
-  ></school-evaluation-chart-two>
+  <school-evaluation-chart-one class="col-xs-6" [chartValues]="schoolInfo"></school-evaluation-chart-one>
+  <school-evaluation-chart-two class="col-xs-6" [chartValues]="schoolInfo"></school-evaluation-chart-two>
 </div>
