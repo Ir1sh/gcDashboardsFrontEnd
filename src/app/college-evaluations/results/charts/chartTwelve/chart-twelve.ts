@@ -8,9 +8,6 @@ let template = require('./chart-twelve.html');
 
 @Component({
     selector: 'college-evaluations-chart-twelve',
-    properties: [
-        'chartValues'
-    ],
   template: template,
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })

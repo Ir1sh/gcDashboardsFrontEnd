@@ -1,0 +1,88 @@
+#+TITLE: Mark Moore Independant Masters Project
+
+* Introduction
+The idea for this project came from an Excel file presented to me by a friend containing a series of dashboards with charts representing educational and career outcome data.  It was proposed that if this excel file could be turned into an interactive format (website) it could be useful to people making life changing decisions about their education and career.  It was decided to use this file as a specification for this website and try to approach it as a commercial project while learning and utilisiing the latest technologies in the relevant areas.
+
+A four phase approach was decided upon to tackle this task.  The phases where data cleaning, database design, server creation and client creation.
+ 
+* Data Cleaning
+** Tools
+ - Microsoft Excel
+ - Pen & Paper
+** Approach
+Roughly 12 datasets where provided in CSV format.  Excel was used to ensure that these CSV files could be programmatically parsed eg no commas used in the containing strings that might confuse a CSV parser.
+
+After this was done the GUI of Excel was used to become familiar with the datasets which is a necessary first step in relational database design and data normalisation.  After numerous 
+iterations or normalisation and codification these 12 datasets became approximately 52 database 
+tables.  
+** Challenges
+ - Creating necessary but subjective links between disparate datasets.  
+   - For example there were two different occupational datasets, one from the US and one from the UK, these each used different coding standards to designate the occupation each row belonged to.  It was desirable to standardise these occupations which meant manually deciding what the UK equivalent of the US occupation codes where.
+ - Parsing the CSV files.  People like to use commas in sentences, it took some time to realise why the parser was failing to parse the files correctly and these commas where the problem.
+* Database Creation And Population
+** Tools
+ - PostgreSql
+ - Navicat for Postgresql
+ - Scala
+ - Play Framework
+** Approach
+I began by writing Sql scripts that would generate the Postgres tables I had designed in the previous step.  Play framework provides the ability to create database 'migrations' which allow you to create independant iterations of your database structure that can build on the previous ones.  This was very helpful as it allowed for a kind of 'version control' of the database structure.  If a mistake is made in one migration it can be easily rolled back and changed and run against the database again.  It also allows the creation of the database structure to be a continuous part of the process as your understanding of the data evolves.
+
+The second part of this step was populating the database with the data in the csv files.  I initially began writing Scala scripts that would parse the csv files and use a database access library to add the data to the database.  Initially this worked well but about half way through the process huge problems where encountered due to the strings with commas mentioned  in the previous section.  After many hours of debugging a different approach was required.
+
+The tool the solved this problem was 'Navicat for Postgresql'.  This is a GUI based Postgresql client and among its many features is the ability to input a CSV file and map its columns directly to the relevant columns in a database table.  This provided massive productivity gains over manually creating Scala scripts for each CSV and database table.
+** Challenges
+ - Effeciently creating scripts for parsing CSV files without repeating the same work over and over again.
+* Server Side
+** Tools
+ - Scala
+ - Play framework
+ - Slick (Scala ORM)
+** Approach
+Scala is a strongly typed, object oriented and functional programming language that runs on the JVM and was the language of choice for the server side implementation of this project.  Play is a web development framework written in Scala that allows relatively rapid iteration, using a Model View Controller (MVC) design pattern, when creating http based services / API's.  It is possible to write HTML, CSS and Javascript as part of your play framework application but for the purposes of this project it was decided that the server would simply be a RESTful(ish) JSON api for accessing the data in the structure needed for the creation of the client dashboards.
+
+This step can roughly be split into 3 steps:
+
+1. Data Modelling
+ - Creating Scala objects (Case Classes) for each table in the database along with their specific db access class
+2. Request and Response design
+ - Deciding the structure of the HTTP requests
+ - Deciding the structure of the JSON responses to each requests
+3. Controller creation
+ -  creating the 'wiring' that receives the requests, retrieves the correct data from the database, transforms it into the correct response structure and returns it to the requester.
+ 
+** Challenges
+ - Whilst being fairly familiar with Scala and Play, Slick was a new tool I did not have much experience with.  Specifically it is not a traditional Object Relational Mapper (ORM) and requires the understanding of some new paradigms in an effort to fit into the Functional Programming paradigm.  It took some time to get familiar with the idiomatic way to use Slick and become productive with it.
+* Client Side
+** Tools
+ - HTML
+ - CSS
+ - Javascript
+ - Angular 2
+ - Charts.js
+ - Twitter Bootstrap
+** Approach
+The browser client for this project would be accessing the JSON api discussed in the previous section using http calls.  It consists of a series of dashboard like webpages created using the Angular 2 Javascript framework by Google.  Angular uses a single page app paradigm where the entire site is loaded into memory at runtime and navigation is controlled via javascript.  In this way we are able to seperate our client code concerns from our server side concerns.
+
+I used a javascript library called ChartsJs, which has an angular2 wrapper, to implement the charts that would be used to display the data in a user friendly way.  The only type of chart required by the spec were barcharts albeit a lot of them.
+
+Angular2 made organising the pages and components relatively straightforward.  It also ships with an HTTP client included so it was also fairly easy to implement the HTTP calls to my server to retrieve the data.  Most of my experience is with Angular 1 so there was a learning curve starting this project with the second version, indeed it is still in beta, but the similarities where such that getting up to speed was not too arduous.  Angular2 uses convention over configuration so a lot of decisions are made for you so you can concentrate on implementing the features you need.
+
+A downside to using such a new framework is lack of library support and documentation.  This particularly effected this project when it came time to layout pages and charts.  It was discovered that the CSS and UX frameworks I was used to did not have versions that support Angular2.  This was realised rather late in the project and seriously limited my options for reaching the 'fit and finish' quality I was hoping for with the site.
+ 
+** Challenges
+ - Learning a new, pre v1, framework
+ - Working around not havign reliable and documented ux libraries
+
+* Further Work
+** Telling a story with the data
+ - Originally it was intended that the browser client would provide a very fluid experience taking the user from one data-set to the next in a logical order that built upon the information provided previously.  Due to time constraints this was un-attainable and is probably the single biggest improvement that could be made to the end product.
+** Further data cleaning
+ - When it came time to implement the server there were a few cases put forward by the spec that it was realised were not possible or easily achieveable with the tables and relationships that were created in the first phase.  This meant that some of the charts detailed in the excel file where not possible to implement on the client.  Resolving these data design problems would allow more information to be presented to the end user.
+** Improved code quality on the server
+ - a code review and refactoring phase on the server side code would go a long way to ensuring the re-usability and extensability of the product as far as adding new data sets and api endpoints.  Cleaning up sloppy code that remains as a result of time constraints and enforcing principles like 'Dont Repeat Yourself' would go a long way to facilitating these extensions.
+** Client-side design
+ -  Putting more effort (any) into the design and layout of the website would create huge usability iprovements.  This is the main portion of the project that was cut short due to time in favour of feature implementation and raw functionality.  It is porobably also the biggest limiting factor when it comes to actually putting the result in front of people to be used / tested / critiqued
+* Conclusion
+To conclude this project was conceived with the purpose of exploring the opportunities user friendly data access might create for people who are making further education or career decisions.
+A three part approach, data, server and client was taken and executed using the most up to date tools and technologies.  The breadth of the project and the limited time frame resulted in relatively significant compromises being made in each section.  At times these compromises compounded from one step to the other causing time to be wasted and ultimately compromises to be made with the final product.  However overall the project can be deemed a success as it gives a functional Proof of Concept that can be tested with potential end-users and stakeholders and iterated upon based on their feedback.

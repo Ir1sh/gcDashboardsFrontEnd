@@ -8,13 +8,6 @@ let template = require('./chart-one.html');
 
 @Component({
     selector: 'dor-chart-one',
-    properties: [
-        'chartValues',
-        'sector',
-        'inst',
-        'grade',
-        'gender'
-    ],
   template: template,
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })

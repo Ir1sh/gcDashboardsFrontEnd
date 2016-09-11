@@ -8,9 +8,6 @@ let template = require('./chart-three.html');
 
 @Component({
     selector: 'leaving-cert-chart-three',
-    properties: [
-        'chartValues',
-    ],
   template: template,
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })

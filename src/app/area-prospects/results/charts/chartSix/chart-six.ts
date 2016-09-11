@@ -8,9 +8,6 @@ let template = require('./chart-six.html');
 
 @Component({
     selector: 'area-prospects-chart-six',
-    properties: [
-        'chartValues'
-    ],
   template: template,
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })

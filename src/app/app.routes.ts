@@ -75,11 +75,5 @@ export const ROUTES: Routes = [
     resolve: {
       'yourData': DataResolver
     }},
-  // async components with children routes must use WebpackAsyncRoute
-  { path: 'detail', component: 'Detail',
-    canActivate: [ WebpackAsyncRoute ],
-    children: [
-      { path: '', component: 'Index' }  // must be included
-    ]},
   { path: '**',    component: NoContent },
 ];
